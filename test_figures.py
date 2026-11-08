@@ -11,12 +11,17 @@ class CircleTestCase(unittest.TestCase):
     def test_perimeter(self):
         # Тест периметра круга с радиусом 5
         res = circle.perimeter(5)
-        self.assertAlmostEqual(res, 2 * math.pi * 5)
+        self.assertAlmostEqual(res, 10 * math.pi)
 
     def test_zero_area(self):
         # Тест площади при нулевом радиусе
         res = circle.area(0)
         self.assertEqual(res, 0)
+
+    def test_below_0(self):
+        # Тест площади при нулевом радиусе
+        res = circle.area(-5)
+        self.assertEqual(res, 10 * math.pi)
 
 
 class RectangleTestCase(unittest.TestCase):
@@ -35,6 +40,12 @@ class RectangleTestCase(unittest.TestCase):
         res = rectangle.area(10, 0)
         self.assertEqual(res, 0)
 
+    def test_below_0(self):
+        # Тест площади при нулевом радиусе
+        res = rectangle.area(10, -5)
+        self.assertEqual(res, 30)
+
+
 
 class SquareTestCase(unittest.TestCase):
     def test_area(self):
@@ -45,6 +56,11 @@ class SquareTestCase(unittest.TestCase):
     def test_perimeter(self):
         # Тест периметра квадрата со стороной 5
         res = square.perimeter(5)
+        self.assertEqual(res, 20)
+
+    def test_below_0(self):
+        # Тест периметра квадрата со стороной 5
+        res = square.perimeter(-5)
         self.assertEqual(res, 20)
 
 
@@ -63,6 +79,11 @@ class TriangleTestCase(unittest.TestCase):
         # Тест площади при высоте равной 0
         res = triangle.area(10, 0)
         self.assertEqual(res, 0)
+
+    def test_below_0(self):
+        # Тест периметра квадрата со стороной 5
+        res = triangle.perimeter(-3, 4, 5)
+        self.assertEqual(res, 12)
 
 if __name__ == '__main__':
     unittest.main()
