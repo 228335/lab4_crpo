@@ -6,12 +6,12 @@ class CircleTestCase(unittest.TestCase):
     def test_area(self):
         # Тест площади круга с радиусом 5
         res = circle.area(5)
-        self.assertAlmostEqual(res, math.pi * 25)
+        self.assertAlmostEqual(res, 78.53981633974483)
 
     def test_perimeter(self):
         # Тест периметра круга с радиусом 5
         res = circle.perimeter(5)
-        self.assertAlmostEqual(res, 10 * math.pi)
+        self.assertAlmostEqual(res, 31.41592653589793)
 
     def test_zero_area(self):
         # Тест площади при нулевом радиусе
@@ -21,7 +21,7 @@ class CircleTestCase(unittest.TestCase):
     def test_below_0(self):
         # Тест площади при нулевом радиусе
         res = circle.area(-5)
-        self.assertEqual(res, 10 * math.pi)
+        self.assertEqual(res, 31.41592653589793)
 
 
 class RectangleTestCase(unittest.TestCase):
